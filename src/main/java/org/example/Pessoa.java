@@ -4,20 +4,20 @@ import java.util.List;
 
 public class Pessoa {
 
-    private String name;
+    private String nome;
     private List<Carro> listCarros;
 
-    public Pessoa(String name) {
-        this.name = name;
+    public Pessoa(String nome) {
+        this.nome = nome;
         this.listCarros = listCarros;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public List<Carro> getListCarros() {
