@@ -12,6 +12,14 @@ public class Carro {
         this.listProblemas = listProblemas;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public List<Problema> getListProblemas() {
         return listProblemas;
     }
@@ -20,11 +28,8 @@ public class Carro {
         this.listProblemas = listProblemas;
     }
 
-    public String getNome() {
+    @Override
+    public String toString() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 }

@@ -2,13 +2,22 @@ package org.example;
 
 public class Problema {
 
-    private String problema;
+    private String nome;
 
-    public String getProblema() {
-        return problema;
+    public Problema(String nome) {
+        this.nome = nome;
     }
 
-    public void setProblema(String problema) {
-        this.problema = problema;
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }
