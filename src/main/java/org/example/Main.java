@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         //Criar listas
+        List<Pessoa> listPessoas = new ArrayList<>();
         List<Problema> listProblemas = new ArrayList<>();
         List<Problema> listProblemas1 = new ArrayList<>();
         List<Problema> listProblemas2 = new ArrayList<>();
@@ -35,15 +36,16 @@ public class Main {
         listCarros.add(carro1);
         listCarros.add(carro2);
         pessoa.setListCarros(listCarros);
+        listPessoas.add(pessoa);
 
-        listProblemas.add(listProblemas1);
-        listProblemas.add(listProblemas2);
 
-        System.out.println("Pessoa: " + pessoa.getNome());
-        for (Carro carro : listCarros) {
-            System.out.println("Carro:\n " + carro.getNome());
-            for (Problema problema : listProblemas) {
-                System.out.println(problema.getNome());
+        for (Pessoa pessoa1 : listPessoas) {
+            System.out.println("Nome: " + pessoa1.getNome());
+            for (Carro carro : pessoa1.getListCarros()) {
+                System.out.println("\nCarro: " + carro.getNome());
+                for (Problema problema : carro.getListProblemas()) {
+                    System.out.println(problema.getNome());
+                }
             }
         }
     }
