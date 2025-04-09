@@ -7,39 +7,82 @@ public class MainTeste {
     public static void main(String[] args) {
 
         List<Continente> listContinentes = new ArrayList<>();
-        List<Continente> listContinentes1 = new ArrayList<>();
-        List<Continente> listContinentes2 = new ArrayList<>();
-        List<Continente> listContinentes3 = new ArrayList<>();
-        List<Pais> listPais1 = new ArrayList<>();
-        List<Pais> listPais2 = new ArrayList<>();
-        List<Pais> listPais3 = new ArrayList<>();
-        List<Estado> listEstados = new ArrayList<>();
+
+        Continente continenteSulAmerica = new Continente("América do Sul");
+        Continente continenteEuropa = new Continente("Europa");
+        Continente continenteAsia = new Continente("Ásia");
+
+        List<Pais> paisesSulAmerica = new ArrayList<>();
+        List<Pais> paisesEuropa = new ArrayList<>();
+        List<Pais> paisesAsia = new ArrayList<>();
+
+        Pais brasil = new Pais("Brasil");
+        Pais inglaterra = new Pais("Inglaterra");
+        Pais china = new Pais("China");
+        paisesSulAmerica.add(brasil);
+        paisesEuropa.add(inglaterra);
+        paisesAsia.add(china);
+
+        continenteSulAmerica.setListPais(paisesSulAmerica);
+        continenteEuropa.setListPais(paisesEuropa);
+        continenteAsia.setListPais(paisesAsia);
+        listContinentes.add(continenteSulAmerica);
+        listContinentes.add(continenteEuropa);
+        listContinentes.add(continenteAsia);
+
+        List<Estado> listEstadosBrasil = new ArrayList<>();
+        List<Estado> listEstadosInglaterra = new ArrayList<>();
+        List<Estado> listEstadosChina = new ArrayList<>();
+
+        Estado santaCatarina = new Estado("Santa Catarina");
+        Estado saoPaulo = new Estado("São Paulo");
+        Estado manchester = new Estado("Manchester");
+        Estado huangpu = new Estado("Huangpu");
+
+        listEstadosBrasil.add(santaCatarina);
+        listEstadosBrasil.add(saoPaulo);
+        listEstadosInglaterra.add(manchester);
+        listEstadosChina.add(huangpu);
+
+        brasil.setListEstados(listEstadosBrasil);
+        inglaterra.setListEstados(listEstadosInglaterra);
+        china.setListEstados(listEstadosChina);
+
+
+        List<Cidade> cidadesSC = new ArrayList<>();
+        List<Cidade> cidadesSP = new ArrayList<>();
+        List<Cidade> cidadesMC = new ArrayList<>();
+        List<Cidade> cidadesHU = new ArrayList<>();
         List<Cidade> listCidades = new ArrayList<>();
-        List<Bairro> listBairros = new ArrayList<>();
 
-        Continente continente1 = new Continente("America do Sul");
-        Continente continente2 = new Continente("Europa");
-        Continente continente3 = new Continente("Ásia");
+        cidadesSC.add(new Cidade("Joinville"));
+        cidadesSC.add(new Cidade("Jaraguá do Sul"));
+        cidadesSP.add(new Cidade("São Paulo"));
+        cidadesSP.add(new Cidade("Ribeirão Preto"));
+        cidadesMC.add(new Cidade("Manchester"));
+        cidadesHU.add(new Cidade("Xangai"));
 
-        listContinentes1.add(continente1);
-        listContinentes2.add(continente2);
-        listContinentes3.add(continente3);
-        continente1.setListContinente(listContinentes1);
-        continente2.setListContinente(listContinentes2);
-        continente3.setListContinente(listContinentes3);
+        listCidades.addAll(cidadesSC);
+        listCidades.addAll(cidadesSP);
+        listCidades.addAll(cidadesMC);
+        listCidades.addAll(cidadesHU);
 
-        Pais pais1 = new Pais("Brasil");
-        Pais pais2 = new Pais("Inglaterra");
-        Pais pais3 = new Pais("China");
-
-        listPais1.add(pais1);
-        listPais2.add(pais2);
-        listPais3.add(pais3);
+        santaCatarina.setListCidades(cidadesSC);
+        saoPaulo.setListCidades(cidadesSP);
+        manchester.setListCidades(cidadesMC);
+        huangpu.setListCidades(cidadesHU);
 
         for (Continente continente : listContinentes) {
-            System.out.println(continente.getNome());
+            System.out.println("\nContinente:\n" + continente.getNome());
+            for (Pais pais : continente.getListPais()) {
+                System.out.println("País:" + pais.getNome());
+                for (Estado estado : pais.getListEstados()) {
+                    System.out.println("\nEstado:" + estado.getNome());
+                    for (Cidade cidade : estado.getListCidades()) {
+                        System.out.println("Cidade: " + cidade.getNome());
+                    }
+                }
+            }
         }
-
-
     }
 }
