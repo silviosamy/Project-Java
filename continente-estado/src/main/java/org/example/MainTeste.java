@@ -6,6 +6,7 @@ import java.util.List;
 public class MainTeste {
     public static void main(String[] args) {
 
+        UtilClass utilClass = new UtilClass();
         List<Continente> listContinentes = new ArrayList<>();
 
         Continente continenteSulAmerica = new Continente("América do Sul");
