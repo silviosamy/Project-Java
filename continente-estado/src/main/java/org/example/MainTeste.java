@@ -9,6 +9,8 @@ public class MainTeste {
         UtilClass utilClass = new UtilClass();
         List<Continente> listContinentes = new ArrayList<>();
 
+        List<Continente> listCont = utilClass.criarContinente(listContinentes);
+
         Continente continenteSulAmerica = new Continente("América do Sul");
         Continente continenteEuropa = new Continente("Europa");
         Continente continenteAsia = new Continente("Ásia");
