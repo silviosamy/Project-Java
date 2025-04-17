@@ -19,7 +19,7 @@ public class MainTesteV2 {
                 paises.add("Brasil");
                 paises.add("Argentina");
                 criaPais(continente, paises);
-            } else if (continente.getNome().equalsIgnoreCase("Europa") {
+            } else if (continente.getNome().equalsIgnoreCase("Europa")) {
                 List<String> paisesE = new ArrayList<>();
                 paisesE.add("Inglaterra");
                 criaPais(continente, paisesE);
@@ -29,16 +29,12 @@ public class MainTesteV2 {
                 criaPais(continente, paisesA);
             }
         }
-
-
         for (Continente continente : listCont) {
             System.out.println("\nContinente:" + continente.getNome());
             for (Pais pais : continente.getListPais()) {
                 System.out.println("País:" + pais.getNome());
             }
         }
-
-
     }
 
     static public void criaPais(Continente continente, List<String> listPaises) {
@@ -48,5 +44,23 @@ public class MainTesteV2 {
             listPais.add(pais);
         }
         continente.setListPais(listPais);
+    }
+
+    static public void criaEstado(Pais pais, List<String> listEstados) {
+        List<Estado> listEstado = new ArrayList<>();
+        for (String nome : listEstados) {
+            Estado estado = new Estado(nome);
+            listEstado.add(estado);
+        }
+        pais.setListEstados(listEstado);
+    }
+
+    static public void criaCidade(Estado estado, List<String> listCidades) {
+        List<Cidade> listCidade = new ArrayList<>();
+        for (String nome : listCidades) {
+            Cidade cidade = new Cidade(nome);
+            listCidade.add(cidade);
+        }
+        estado.setListCidades(listCidade);
     }
 }
