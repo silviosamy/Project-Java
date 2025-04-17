@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainTesteV2 {
-
     public static void main(String[] args) {
         UtilClass utilClass = new UtilClass();
         List<String> listContinentes = new ArrayList<>();
@@ -43,8 +42,11 @@ public class MainTesteV2 {
     }
 
     static public void criaPais(Continente continente, List<String> listPaises) {
-        for (String pais : listPaises) {
-
+        List<Pais> listPais = new ArrayList<>();
+        for (String nome : listPaises) {
+            Pais pais = new Pais(nome);
+            listPais.add(pais);
         }
+        continente.setListPais(listPais);
     }
 }
