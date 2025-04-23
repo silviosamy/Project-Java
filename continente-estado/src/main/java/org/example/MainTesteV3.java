@@ -1,5 +1,7 @@
 package org.example;
 
+import org.intellij.lang.annotations.JdkConstants;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +9,7 @@ public class MainTesteV3 {
     public static void main(String[] args) {
 
         List<Continente> listContinentes = new ArrayList<>();
-        Continente continente1 = new Continente("América");
+        Continente continente1 = new Continente("América do Sul");
         Continente continente2 = new Continente("Europa");
         Continente continente3 = new Continente("Ásia");
         listContinentes.add(continente1);
@@ -24,15 +26,30 @@ public class MainTesteV3 {
                 List<Pais> listPais = new ArrayList<>();
                 listPais.add(new Pais("Inglaterra"));
                 continente.setListPais(listPais);
-            } else if (continente.getNome().equalsIgnoreCase("África")) {
+            } else if (continente.getNome().equalsIgnoreCase("Ásia")) {
                 List<Pais> listPais = new ArrayList<>();
-                listPais.add(new Pais("África do Sul"));
+                listPais.add(new Pais("China"));
                 continente.setListPais(listPais);
             }
         }
 
         for (Continente continente : listContinentes) {
-            System.out.println(continente.getNome());
+            for (Pais pais : continente.getListPais()) {
+                if (pais.getNome().equalsIgnoreCase("Brasil")) {
+                    List<Estado> listEstados = new ArrayList<>();
+                    listEstados.add(new Estado("Santa Catarina"));
+                    listEstados.add(new Estado("São Paulo"));
+                } else if (pais.getNome().equalsIgnoreCase("Argentina")) {
+                    List<Estado> listEstados = new ArrayList<>();
+                    listEstados.add(new Estado("Buenos Aires"));
+                } else if (pais.getNome().equalsIgnoreCase(""))
+
+            }
+        }
+
+
+        for (Continente continente : listContinentes) {
+            System.out.println("Continente: " + continente.getNome() + "\nPaíses: ");
             for (Pais pais : continente.getListPais()) {
                 System.out.println(pais.getNome());
             }
