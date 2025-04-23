@@ -5,9 +5,12 @@ import java.util.List;
 
 public class UtilClass {
 
-    public Continente criarContinentes(String nome) {
-        Continente continente1 = new Continente(nome);
-        return continente1;
+    public List<Pais> criaPaises(List<String> listPaisesStr) {
+        List<Pais> listPais = new ArrayList<>();
+        for (String pais : listPaisesStr) {
+            listPais.add(new Pais(pais));
+        }
+        return listPais;
     }
 
     public List<Continente> listaContinentes(List<String> nomeContinentes) {
