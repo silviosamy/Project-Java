@@ -10,31 +10,31 @@ public class MainTesteV3 {
         //Cria os objetos e lista principal para iteração
         UtilClass utilClass = new UtilClass();
         List<Continente> listContinentes = new ArrayList<>();
-        Continente continente1 = new Continente("América do Sul");
+        Continente continente1 = new Continente("America do Sul");
         Continente continente2 = new Continente("Europa");
-        Continente continente3 = new Continente("Ásia");
+        Continente continente3 = new Continente("Asia");
         listContinentes.add(continente1);
         listContinentes.add(continente2);
         listContinentes.add(continente3);
 
         //Cria o(s) Pais(es) dentro de cada Continente
         for (Continente continente : listContinentes) {
-            if (continente.getNome().trim().equalsIgnoreCase("América do Sul")) {
+            if (continente.getNome().trim().equalsIgnoreCase("America do Sul")) {
                 List<String> listPaises = new ArrayList<>(Arrays.asList("Brasil"));
-                continente.setListPais(utilClass.criaPaise(listPaises));
+                continente.setListPais(utilClass.criaPais(listPaises));
             } else if (continente.getNome().trim().equalsIgnoreCase("Europa")) {
                 List<String> listPaises = new ArrayList<>(Arrays.asList("Inglaterra"));
-                continente.setListPais(utilClass.criaPaise(listPaises));
-            } else if (continente.getNome().trim().equalsIgnoreCase(("Ásia"))) {
+                continente.setListPais(utilClass.criaPais(listPaises));
+            } else if (continente.getNome().trim().equalsIgnoreCase(("Asia"))) {
                 List<String> listPaises = new ArrayList<>(Arrays.asList("Japao"));
-                continente.setListPais(utilClass.criaPaise(listPaises));
+                continente.setListPais(utilClass.criaPais(listPaises));
             }
         }
         //Cria Estado(s) dentro de cada Pais
         for (Continente continente : listContinentes) {
+            if (continente.getListPais() == null)
+                continue;
             for (Pais pais : continente.getListPais()) {
-                if (continente.getListPais() == null)
-                    continue;
                 if (pais.getNome().trim().equalsIgnoreCase("Brasil")) {
                     List<String> listEstados = new ArrayList<>(Arrays.asList("Santa Catarina"));
                     pais.setListEstados(utilClass.criaEstado(listEstados));
@@ -101,12 +101,20 @@ public class MainTesteV3 {
         //Iteração nas listas dentro das listas para printar na tela.
         for (Continente continente : listContinentes) {
             System.out.println("\nContinente: " + continente.getNome() + "\nPaíses: ");
+            if (continente.getListPais() == null )
+                continue;
             for (Pais pais : continente.getListPais()) {
                 System.out.println(pais.getNome() + "\nEstados:");
+                if (pais.getListEstados() == null)
+                    continue;
                 for (Estado estado : pais.getListEstados()) {
                     System.out.println(estado.getNome() + "\nCidades: ");
+                    if (estado.getListCidades() == null)
+                        continue;
                     for (Cidade cidade : estado.getListCidades()) {
                         System.out.println(cidade.getNome() + "\nBairros:");
+                        if (cidade.getListBairros() == null)
+                            continue;
                         for (Bairro bairro : cidade.getListBairros()) {
                             System.out.println(bairro.getNome());
                         }

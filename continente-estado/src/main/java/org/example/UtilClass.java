@@ -5,7 +5,7 @@ import java.util.List;
 
 public class UtilClass {
 
-    public List<Pais> criaPaise(List<String> listPaisesStr) {
+    public List<Pais> criaPais(List<String> listPaisesStr) {
         List<Pais> listPais = new ArrayList<>();
         for (String pais : listPaisesStr) {
             listPais.add(new Pais(pais));
