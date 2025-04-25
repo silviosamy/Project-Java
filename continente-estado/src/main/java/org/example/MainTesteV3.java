@@ -10,43 +10,17 @@ public class MainTesteV3 {
         //Cria os objetos e lista principal para iteração
         UtilClass utilClass = new UtilClass();
         List<Continente> listContinentes = new ArrayList<>();
-        Continente continente1 = new Continente("America do Sul");
-        Continente continente2 = new Continente("Europa");
-        Continente continente3 = new Continente("Asia");
-        listContinentes.add(continente1);
-        listContinentes.add(continente2);
-        listContinentes.add(continente3);
+        listContinentes.add(new Continente("América do Sul"));
+        listContinentes.add(new Continente("Europa"));
+        listContinentes.add(new Continente("Ásia"));
+        listContinentes.add(new Continente("Oceania"));
 
         //Cria o(s) Pais(es) dentro de cada Continente
-        for (Continente continente : listContinentes) {
-            if (continente.getNome().trim().equalsIgnoreCase("America do Sul")) {
-                List<String> listPaises = new ArrayList<>(Arrays.asList("Brasil"));
-                continente.setListPais(utilClass.criaPais(listPaises));
-            } else if (continente.getNome().trim().equalsIgnoreCase("Europa")) {
-                List<String> listPaises = new ArrayList<>(Arrays.asList("Inglaterra"));
-                continente.setListPais(utilClass.criaPais(listPaises));
-            } else if (continente.getNome().trim().equalsIgnoreCase(("Asia"))) {
-                List<String> listPaises = new ArrayList<>(Arrays.asList("Japao"));
-                continente.setListPais(utilClass.criaPais(listPaises));
-            }
-        }
+        //utilClass.adicionaPaisesNoContinente(listContinentes);
+
         //Cria Estado(s) dentro de cada Pais
         for (Continente continente : listContinentes) {
-            if (continente.getListPais() == null)
-                continue;
-            for (Pais pais : continente.getListPais()) {
-                if (pais.getNome().trim().equalsIgnoreCase("Brasil")) {
-                    List<String> listEstados = new ArrayList<>(Arrays.asList("Santa Catarina"));
-                    pais.setListEstados(utilClass.criaEstado(listEstados));
-                } else if (pais.getNome().trim().equalsIgnoreCase("Inglaterra")) {
-                    List<String> listEstados = new ArrayList<>(Arrays.asList("Londres"));
-                    pais.setListEstados(utilClass.criaEstado(listEstados));
-                } else if (pais.getNome().trim().equalsIgnoreCase("Japao")) {
-                    List<String> listEstados = new ArrayList<>(Arrays.asList("Toquio"));
-                    pais.setListEstados(utilClass.criaEstado(listEstados));
-                }
-
-            }
+            utilClass.adicionaEstadosNoPais(continente.getListPais(), continente.getNome());
         }
         //Cria Cidade(s) dentro de cada Estado
         for (Continente continente : listContinentes) {
@@ -56,13 +30,13 @@ public class MainTesteV3 {
                 if (pais.getListEstados() == null)
                     continue;
                 for (Estado estado : pais.getListEstados()) {
-                    if (estado.getNome().trim().equalsIgnoreCase("Santa Catarina")) {
-                        List<String> listCidades = new ArrayList<>(Arrays.asList("Joinville"));
+                    if (estado.getNome().equalsIgnoreCase("Santa Catarina")) {
+                        List<String> listCidades = new ArrayList<>(Arrays.asList("Joinville", "Jaragua do Sul"));
                         estado.setListCidades(utilClass.criaCidade(listCidades));
-                    } else if (estado.getNome().trim().equalsIgnoreCase("Londres")) {
+                    } else if (estado.getNome().equalsIgnoreCase("Londres")) {
                         List<String> listCidades = new ArrayList<>(Arrays.asList("Cidade de Londres"));
                         estado.setListCidades(utilClass.criaCidade(listCidades));
-                    } else if (estado.getNome().trim().equalsIgnoreCase("Toquio")) {
+                    } else if (estado.getNome().equalsIgnoreCase("Toquio")) {
                         List<String> listCidades = new ArrayList<>(Arrays.asList("Cidade de Toquio"));
                         estado.setListCidades(utilClass.criaCidade(listCidades));
 
@@ -81,15 +55,15 @@ public class MainTesteV3 {
                     if (estado.getListCidades() == null)
                         continue;
                     for (Cidade cidade : estado.getListCidades()) {
-                        if (cidade.getListBairros() == null)
+                        if (estado.getListCidades() == null)
                             continue;
-                        if (cidade.getNome().trim().equalsIgnoreCase("Joinville")) {
+                        if (cidade.getNome().equalsIgnoreCase("Joinville")) {
                             List<String> listBairros = new ArrayList<>(Arrays.asList("America"));
                             cidade.setListBairros(utilClass.criaBairro(listBairros));
-                        } else if (cidade.getNome().trim().equalsIgnoreCase("Cidade de Londres")) {
+                        } else if (cidade.getNome().equalsIgnoreCase("Cidade de Londres")) {
                             List<String> listBairros = new ArrayList<>(Arrays.asList("Manchester"));
                             cidade.setListBairros(utilClass.criaBairro(listBairros));
-                        } else if (cidade.getNome().trim().equalsIgnoreCase("Cidade de Toquio")) {
+                        } else if (cidade.getNome().equalsIgnoreCase("Cidade de Toquio")) {
                             List<String> listBairros = new ArrayList<>(Arrays.asList("Suzuka"));
                             cidade.setListBairros(utilClass.criaBairro(listBairros));
                         }
@@ -100,25 +74,26 @@ public class MainTesteV3 {
 
         //Iteração nas listas dentro das listas para printar na tela.
         for (Continente continente : listContinentes) {
-            System.out.println("\nContinente: " + continente.getNome() + "\nPaíses: ");
-            if (continente.getListPais() == null )
+            System.out.println("\nContinente: " + continente.getNome());
+            if (continente.getListPais() == null)
                 continue;
             for (Pais pais : continente.getListPais()) {
-                System.out.println(pais.getNome() + "\nEstados:");
+                System.out.println("País:" + pais.getNome());
                 if (pais.getListEstados() == null)
                     continue;
                 for (Estado estado : pais.getListEstados()) {
-                    System.out.println(estado.getNome() + "\nCidades: ");
+                    System.out.println("Estado: " + estado.getNome());
                     if (estado.getListCidades() == null)
                         continue;
                     for (Cidade cidade : estado.getListCidades()) {
-                        System.out.println(cidade.getNome() + "\nBairros:");
+                        System.out.println("Cidade: " + cidade.getNome());
                         if (cidade.getListBairros() == null)
                             continue;
                         for (Bairro bairro : cidade.getListBairros()) {
-                            System.out.println(bairro.getNome());
+                            System.out.println("Bairro: " + bairro.getNome());
                         }
                     }
+
                 }
             }
         }
