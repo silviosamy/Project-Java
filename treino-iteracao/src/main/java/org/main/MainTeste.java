@@ -39,20 +39,5 @@ public class MainTeste {
                 computador.setListProcessador(listProcessadores);
             }
         }
-
-
-        for (Computador computador : listComputador) {
-            System.out.println("\nNome: " + computador.getNome());
-            for (Teclado teclado : computador.getListTeclados()) {
-                System.out.println("Teclado: " + teclado.getNome());
-            }
-            for (Mouse mouse : computador.getListMouse()) {
-                System.out.println("Mouse: " + mouse.getNome());
-            }
-            for (Processador processador : computador.getListProcessador()) {
-                System.out.println("Processador: " + processador.getNome());
-            }
-        }
-
     }
 }

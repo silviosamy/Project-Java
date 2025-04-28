@@ -15,22 +15,44 @@ public class MainTesteV2 {
         listComputador.add(computador2);
 
         for (Computador computador : listComputador) {
-            List<String> listaMouses = new ArrayList<>();
+
             if (computador.getNome() == null) continue;
-            if (computador.getNome().equalsIgnoreCase("Computador1")) {
-                listaMouses.addAll(Arrays.asList("Razer", "Logitech"));
+            if (computador.getNome().equalsIgnoreCase("computador1")) {
+                List<String> listaMouses = new ArrayList<>();
+                List<String> listaTeclados = new ArrayList<>();
+                List<String> listaProcessadores = new ArrayList<>();
+                listaTeclados.addAll(Arrays.asList("Teclado Razer", "Teclado Logitech"));
+                listaMouses.addAll(Arrays.asList("Mouse Razer"));
+                listaProcessadores.addAll(Arrays.asList("i5"));
                 utilClass.addMouseComputador(computador1, listaMouses);
+                utilClass.addTecladoComputador(computador1, listaTeclados);
+                utilClass.addProcessadorComputador(computador1, listaProcessadores);
+            } else if (computador.getNome().equalsIgnoreCase("computador2")) {
+                List<String> listaMouses = new ArrayList<>();
+                List<String> listaTeclados = new ArrayList<>();
+                List<String> listaProcessadores = new ArrayList<>();
+                listaTeclados.addAll(Arrays.asList("Teclado Logitech", "Teclado Razer", "Teclado Dell"));
+                listaMouses.addAll(Arrays.asList("Mouse Razer", "Mouse Logitech"));
+                listaProcessadores.addAll(Arrays.asList("AMD", "i7"));
+                utilClass.addMouseComputador(computador2, listaMouses);
+                utilClass.addTecladoComputador(computador2, listaTeclados);
+                utilClass.addProcessadorComputador(computador2, listaProcessadores);
             }
         }
 
         for (Computador computador : listComputador) {
-            System.out.println(computador.getNome());
-            if (computador.getListMouse() == null)
-                continue;
-            for (Mouse mouse : computador.getListMouse()) {
-                System.out.println(mouse.getNome());
+            System.out.println("\nNome: " + computador.getNome());
+            for (Teclado teclado : computador.getListTeclados()) {
+                System.out.println("Teclado: " + teclado.getNome());
             }
-        }
+            for (Mouse mouse : computador.getListMouse()) {
+                System.out.println("Mouse: " + mouse.getNome());
+            }
+            for (Processador processador : computador.getListProcessador()) {
+                System.out.println("Processador: " + processador.getNome());
 
+            }
+
+        }
     }
 }
