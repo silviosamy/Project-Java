@@ -2,11 +2,11 @@ package org.main;
 
 public class Mouse {
 
+    private String nome;
+
     public Mouse(String nome) {
         this.nome = nome;
     }
-
-    private String nome;
 
     public String getNome() {
         return nome;
