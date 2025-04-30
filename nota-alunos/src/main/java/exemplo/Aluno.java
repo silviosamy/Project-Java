@@ -6,6 +6,11 @@ public class Aluno {
     private int matricula;
     double[] listNotas;
 
+    @Override
+    public String toString() {
+        return nome;
+    }
+
     public Aluno(String nome, int matricula) {
         this.nome = nome;
         this.matricula = matricula;
