@@ -18,7 +18,7 @@ public class MainTeste {
             System.out.println(contato.getNome());
         }
         System.out.println("Total: " + listContatos.size());
-        deletarContato(listContatos, "Rafael");
+        deletarContato(listContatos, "Silvio");
         System.out.println("Depois do delete: " + listContatos.size());
         buscarContato(listContatos, "Rafael");
 
