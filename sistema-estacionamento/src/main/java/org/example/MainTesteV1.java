@@ -13,8 +13,8 @@ public class MainTesteV1 {
 
     public static Carro entrarCarro(Estacionamento estacionamento, Carro carro) {
         List<Carro> listCarros = new ArrayList<>();
-        for()
-        listCarros.add(carro);
+        for ()
+            listCarros.add(carro);
     }
 
     public static sairCarro(String Placa) {
